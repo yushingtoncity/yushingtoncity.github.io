@@ -1,0 +1,36 @@
+{
+ "meta": {
+  "source_repo": "portfolio-optimization",
+  "generator": ".venv/Scripts/python.exe site_export.py (run from the repo root)",
+  "description": "Predicted vs realized annualized volatility per allocation, the data behind assets/estimation_vs_evaluation_vol.png. Predicted = allocations.predicted_vol: sqrt(252 * w' Cov w) with Cov the daily-return covariance of the estimation window 2019-01-01 to 2022-12-31. Realized = metrics.annualized_vol: sample std of the allocation's daily gross returns over the evaluation window 2023-2024, times sqrt(252).",
+  "units": "decimal fraction per year (0.137 = 13.7 percent), 4 decimal places",
+  "axes": {
+   "x": "allocation",
+   "y": "annualized volatility, decimal fraction"
+  },
+  "labels": {
+   "equal_weight": "Equal weight",
+   "inverse_volatility": "Inverse volatility",
+   "min_variance": "Min variance (long-only, 25% cap)",
+   "sixty_forty": "60/40 SPY/AGG (reference)"
+  }
+ },
+ "allocations": {
+  "equal_weight": {
+   "predicted": 0.2516,
+   "realized": 0.1368
+  },
+  "inverse_volatility": {
+   "predicted": 0.2424,
+   "realized": 0.1261
+  },
+  "min_variance": {
+   "predicted": 0.2157,
+   "realized": 0.1146
+  },
+  "sixty_forty": {
+   "predicted": 0.1416,
+   "realized": 0.0853
+  }
+ }
+}

@@ -1,0 +1,139 @@
+{
+ "meta": {
+  "source_repo": "market-entropy",
+  "generated_by": "python site_export.py (run from the market-entropy repo root)",
+  "description": "Data behind report/figures/v2b_cost_survival.png, from data/tardis/study/{SYMBOL}_costs.parquet. median_net_bps_per_day_central: median across held-out days of daily net PnL in bps at the central cost grid point (fee 2.5 bps, spread x1, c=1). breakeven_bps_per_turn_permissive: total gross PnL divided by total turnover across days at the most permissive grid point (fee 0, spread x0.5, c=0.5), the report's breakeven table; null where total turnover is zero (logit at h=1s).",
+  "x_axis": "horizon in seconds",
+  "y_axis": "bps per day (central net); bps per turn (breakeven)",
+  "units": "basis points"
+ },
+ "horizons_s": [
+  1,
+  5,
+  10,
+  30,
+  60
+ ],
+ "grids": {
+  "central": {
+   "fee_bps": 2.5,
+   "spread_mult": 1.0,
+   "c": 1.0
+  },
+  "permissive": {
+   "fee_bps": 0.0,
+   "spread_mult": 0.5,
+   "c": 0.5
+  }
+ },
+ "series": [
+  {
+   "symbol": "BTCUSDT",
+   "model": "ols",
+   "median_net_bps_per_day_central": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "breakeven_bps_per_turn_permissive": [
+    0.208176,
+    0.277339,
+    0.284658,
+    0.30105,
+    0.316196
+   ]
+  },
+  {
+   "symbol": "BTCUSDT",
+   "model": "logit",
+   "median_net_bps_per_day_central": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "breakeven_bps_per_turn_permissive": [
+    null,
+    0.269084,
+    0.274449,
+    0.291623,
+    0.325035
+   ]
+  },
+  {
+   "symbol": "BTCUSDT",
+   "model": "hgb",
+   "median_net_bps_per_day_central": [
+    0.0,
+    -4.15214,
+    -6.11578,
+    -24.9497,
+    -23.5927
+   ],
+   "breakeven_bps_per_turn_permissive": [
+    0.177389,
+    0.277159,
+    0.293467,
+    0.27556,
+    0.285935
+   ]
+  },
+  {
+   "symbol": "ETHUSDT",
+   "model": "ols",
+   "median_net_bps_per_day_central": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "breakeven_bps_per_turn_permissive": [
+    0.193324,
+    0.245478,
+    0.243948,
+    0.245227,
+    0.27375
+   ]
+  },
+  {
+   "symbol": "ETHUSDT",
+   "model": "logit",
+   "median_net_bps_per_day_central": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "breakeven_bps_per_turn_permissive": [
+    null,
+    0.233415,
+    0.228029,
+    0.234316,
+    0.23307
+   ]
+  },
+  {
+   "symbol": "ETHUSDT",
+   "model": "hgb",
+   "median_net_bps_per_day_central": [
+    0.0,
+    -29.5795,
+    -44.0817,
+    -113.21,
+    -123.905
+   ],
+   "breakeven_bps_per_turn_permissive": [
+    0.171052,
+    0.249025,
+    0.255913,
+    0.208007,
+    0.216356
+   ]
+  }
+ ]
+}

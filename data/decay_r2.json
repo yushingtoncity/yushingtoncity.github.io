@@ -1,0 +1,133 @@
+{
+ "meta": {
+  "source_repo": "market-entropy",
+  "generated_by": "python site_export.py (run from the market-entropy repo root)",
+  "description": "Median per-day out-of-sample R2 (and sign accuracy) versus prediction horizon, computed from data/tardis/study/{SYMBOL}_returns.parquet. Series selection replicates report/figures/v2b_decay_returns.png exactly: feature group G3, models ols, logit, hgb, per symbol. Each point is the median across held-out walk-forward days of that day's OOS R2 (1 - SSE_model/SSE_zero) times 100.",
+  "x_axis": "horizon in seconds (log scale in the committed figure)",
+  "y_axis": "median per-day OOS R2 in percent; sign accuracy in percent of bars with nonzero mid move",
+  "units": "percent"
+ },
+ "horizons_s": [
+  1,
+  5,
+  10,
+  30,
+  60
+ ],
+ "series": [
+  {
+   "symbol": "BTCUSDT",
+   "model": "ols",
+   "group": "G3",
+   "median_oos_r2_pct": [
+    3.6493,
+    2.8684,
+    1.81779,
+    0.687566,
+    0.348393
+   ],
+   "median_sign_acc_pct": [
+    74.9053,
+    65.6211,
+    60.4962,
+    54.8834,
+    53.1682
+   ]
+  },
+  {
+   "symbol": "BTCUSDT",
+   "model": "logit",
+   "group": "G3",
+   "median_oos_r2_pct": [
+    0.0,
+    1.63412,
+    1.50058,
+    0.57801,
+    0.321336
+   ],
+   "median_sign_acc_pct": [
+    73.8118,
+    64.8445,
+    60.0662,
+    54.7444,
+    52.9214
+   ]
+  },
+  {
+   "symbol": "BTCUSDT",
+   "model": "hgb",
+   "group": "G3",
+   "median_oos_r2_pct": [
+    4.17904,
+    2.78778,
+    1.70584,
+    0.245845,
+    -0.191605
+   ],
+   "median_sign_acc_pct": [
+    76.2833,
+    66.1136,
+    60.7059,
+    54.7391,
+    52.6368
+   ]
+  },
+  {
+   "symbol": "ETHUSDT",
+   "model": "ols",
+   "group": "G3",
+   "median_oos_r2_pct": [
+    2.61889,
+    1.51234,
+    0.931827,
+    0.34936,
+    0.235249
+   ],
+   "median_sign_acc_pct": [
+    69.5701,
+    60.4326,
+    56.7228,
+    53.2078,
+    52.2826
+   ]
+  },
+  {
+   "symbol": "ETHUSDT",
+   "model": "logit",
+   "group": "G3",
+   "median_oos_r2_pct": [
+    0.0,
+    1.12173,
+    0.766062,
+    0.303702,
+    0.177504
+   ],
+   "median_sign_acc_pct": [
+    68.845,
+    59.8007,
+    56.2811,
+    53.0271,
+    52.1309
+   ]
+  },
+  {
+   "symbol": "ETHUSDT",
+   "model": "hgb",
+   "group": "G3",
+   "median_oos_r2_pct": [
+    2.97647,
+    1.04388,
+    0.30457,
+    -0.494867,
+    -1.19567
+   ],
+   "median_sign_acc_pct": [
+    70.6408,
+    59.8277,
+    56.4267,
+    52.8523,
+    51.6169
+   ]
+  }
+ ]
+}

@@ -1,0 +1,243 @@
+{
+ "meta": {
+  "source_repo": "market-entropy",
+  "generated_by": "python site_export.py (run from the market-entropy repo root)",
+  "description": "Trade-sign classifier accuracy parsed from the machine-generated block (v1:begin..v1:end markers) of report/v1_lobster_validation.md, which is written by run_v1.py from LOBSTER ground truth (one day, 2012-06-21, five NASDAQ names). classifier_accuracy: percent of executions whose predicted aggressor sign matches the true sign, per ticker and classifier, for synchronized pre-trade quotes (visible), quotes lagged 1s (visible_lagged_quote), and hidden executions. location_accuracy: pooled accuracy by trade location and tick-size group, with trade counts. The synchronized visible column is a pipeline correctness check, near 100 percent by construction; the lagged and hidden columns are the informative ones.",
+  "units": "percent (accuracy); count (n_trades)"
+ },
+ "classifier_accuracy": [
+  {
+   "ticker": "AAPL",
+   "classifier": "lee_ready",
+   "visible_pct": 100.0,
+   "visible_lagged_quote_pct": 90.3,
+   "hidden_pct": 85.4
+  },
+  {
+   "ticker": "AAPL",
+   "classifier": "tick",
+   "visible_pct": 88.4,
+   "visible_lagged_quote_pct": 88.4,
+   "hidden_pct": 77.9
+  },
+  {
+   "ticker": "AAPL",
+   "classifier": "emo",
+   "visible_pct": 100.0,
+   "visible_lagged_quote_pct": 90.7,
+   "hidden_pct": 77.9
+  },
+  {
+   "ticker": "AMZN",
+   "classifier": "lee_ready",
+   "visible_pct": 100.0,
+   "visible_lagged_quote_pct": 92.0,
+   "hidden_pct": 86.4
+  },
+  {
+   "ticker": "AMZN",
+   "classifier": "tick",
+   "visible_pct": 87.7,
+   "visible_lagged_quote_pct": 87.7,
+   "hidden_pct": 69.9
+  },
+  {
+   "ticker": "AMZN",
+   "classifier": "emo",
+   "visible_pct": 100.0,
+   "visible_lagged_quote_pct": 91.8,
+   "hidden_pct": 69.9
+  },
+  {
+   "ticker": "GOOG",
+   "classifier": "lee_ready",
+   "visible_pct": 100.0,
+   "visible_lagged_quote_pct": 91.5,
+   "hidden_pct": 89.7
+  },
+  {
+   "ticker": "GOOG",
+   "classifier": "tick",
+   "visible_pct": 85.7,
+   "visible_lagged_quote_pct": 85.7,
+   "hidden_pct": 82.7
+  },
+  {
+   "ticker": "GOOG",
+   "classifier": "emo",
+   "visible_pct": 100.0,
+   "visible_lagged_quote_pct": 91.2,
+   "hidden_pct": 82.7
+  },
+  {
+   "ticker": "INTC",
+   "classifier": "lee_ready",
+   "visible_pct": 100.0,
+   "visible_lagged_quote_pct": 93.8,
+   "hidden_pct": 63.6
+  },
+  {
+   "ticker": "INTC",
+   "classifier": "tick",
+   "visible_pct": 79.0,
+   "visible_lagged_quote_pct": 79.0,
+   "hidden_pct": 63.6
+  },
+  {
+   "ticker": "INTC",
+   "classifier": "emo",
+   "visible_pct": 100.0,
+   "visible_lagged_quote_pct": 94.0,
+   "hidden_pct": 63.5
+  },
+  {
+   "ticker": "MSFT",
+   "classifier": "lee_ready",
+   "visible_pct": 100.0,
+   "visible_lagged_quote_pct": 93.5,
+   "hidden_pct": 62.0
+  },
+  {
+   "ticker": "MSFT",
+   "classifier": "tick",
+   "visible_pct": 79.5,
+   "visible_lagged_quote_pct": 79.5,
+   "hidden_pct": 61.9
+  },
+  {
+   "ticker": "MSFT",
+   "classifier": "emo",
+   "visible_pct": 100.0,
+   "visible_lagged_quote_pct": 93.5,
+   "hidden_pct": 61.9
+  }
+ ],
+ "location_accuracy": [
+  {
+   "tick_group": "large_tick",
+   "classifier": "emo",
+   "location": "at_mid",
+   "n_trades": 6005,
+   "accuracy_pct": 66.5
+  },
+  {
+   "tick_group": "large_tick",
+   "classifier": "emo",
+   "location": "at_quote",
+   "n_trades": 53480,
+   "accuracy_pct": 100.0
+  },
+  {
+   "tick_group": "large_tick",
+   "classifier": "emo",
+   "location": "inside",
+   "n_trades": 17,
+   "accuracy_pct": 52.9
+  },
+  {
+   "tick_group": "large_tick",
+   "classifier": "lee_ready",
+   "location": "at_mid",
+   "n_trades": 6005,
+   "accuracy_pct": 66.5
+  },
+  {
+   "tick_group": "large_tick",
+   "classifier": "lee_ready",
+   "location": "at_quote",
+   "n_trades": 53480,
+   "accuracy_pct": 100.0
+  },
+  {
+   "tick_group": "large_tick",
+   "classifier": "lee_ready",
+   "location": "inside",
+   "n_trades": 17,
+   "accuracy_pct": 100.0
+  },
+  {
+   "tick_group": "large_tick",
+   "classifier": "tick",
+   "location": "at_mid",
+   "n_trades": 6005,
+   "accuracy_pct": 66.5
+  },
+  {
+   "tick_group": "large_tick",
+   "classifier": "tick",
+   "location": "at_quote",
+   "n_trades": 53480,
+   "accuracy_pct": 87.4
+  },
+  {
+   "tick_group": "large_tick",
+   "classifier": "tick",
+   "location": "inside",
+   "n_trades": 17,
+   "accuracy_pct": 52.9
+  },
+  {
+   "tick_group": "small_tick",
+   "classifier": "emo",
+   "location": "at_mid",
+   "n_trades": 653,
+   "accuracy_pct": 61.1
+  },
+  {
+   "tick_group": "small_tick",
+   "classifier": "emo",
+   "location": "at_quote",
+   "n_trades": 36392,
+   "accuracy_pct": 100.0
+  },
+  {
+   "tick_group": "small_tick",
+   "classifier": "emo",
+   "location": "inside",
+   "n_trades": 15313,
+   "accuracy_pct": 80.4
+  },
+  {
+   "tick_group": "small_tick",
+   "classifier": "lee_ready",
+   "location": "at_mid",
+   "n_trades": 653,
+   "accuracy_pct": 61.1
+  },
+  {
+   "tick_group": "small_tick",
+   "classifier": "lee_ready",
+   "location": "at_quote",
+   "n_trades": 36392,
+   "accuracy_pct": 100.0
+  },
+  {
+   "tick_group": "small_tick",
+   "classifier": "lee_ready",
+   "location": "inside",
+   "n_trades": 15313,
+   "accuracy_pct": 87.6
+  },
+  {
+   "tick_group": "small_tick",
+   "classifier": "tick",
+   "location": "at_mid",
+   "n_trades": 653,
+   "accuracy_pct": 61.1
+  },
+  {
+   "tick_group": "small_tick",
+   "classifier": "tick",
+   "location": "at_quote",
+   "n_trades": 36392,
+   "accuracy_pct": 89.6
+  },
+  {
+   "tick_group": "small_tick",
+   "classifier": "tick",
+   "location": "inside",
+   "n_trades": 15313,
+   "accuracy_pct": 80.4
+  }
+ ]
+}

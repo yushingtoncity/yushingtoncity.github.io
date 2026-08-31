@@ -1,0 +1,596 @@
+{
+ "meta": {
+  "source_repo": "market-entropy",
+  "generated_by": "python site_export.py (run from the market-entropy repo root)",
+  "description": "Month x symbol coverage grid from the committed report/tardis_manifest.json: for each candidate day (first calendar day of each month, 2023-01 through 2026-08, Binance futures via Tardis.dev free tier) and each symbol, whether the day-symbol is included in the study, excluded (reason given, from the manifest), missing (recorded 404 in the manifest), or absent (no manifest entry).",
+  "axes": "rows: symbol x month; status in {included, excluded, missing, absent}",
+  "units": "categorical status per day-symbol"
+ },
+ "symbols": [
+  "BTCUSDT",
+  "ETHUSDT"
+ ],
+ "months": [
+  "2023-01",
+  "2023-02",
+  "2023-03",
+  "2023-04",
+  "2023-05",
+  "2023-06",
+  "2023-07",
+  "2023-08",
+  "2023-09",
+  "2023-10",
+  "2023-11",
+  "2023-12",
+  "2024-01",
+  "2024-02",
+  "2024-03",
+  "2024-04",
+  "2024-05",
+  "2024-06",
+  "2024-07",
+  "2024-08",
+  "2024-09",
+  "2024-10",
+  "2024-11",
+  "2024-12",
+  "2025-01",
+  "2025-02",
+  "2025-03",
+  "2025-04",
+  "2025-05",
+  "2025-06",
+  "2025-07",
+  "2025-08",
+  "2025-09",
+  "2025-10",
+  "2025-11",
+  "2025-12",
+  "2026-01",
+  "2026-02",
+  "2026-03",
+  "2026-04",
+  "2026-05",
+  "2026-06",
+  "2026-07",
+  "2026-08"
+ ],
+ "summary": {
+  "included": 87,
+  "excluded": 1,
+  "missing": 0,
+  "absent": 0
+ },
+ "rows": [
+  {
+   "symbol": "BTCUSDT",
+   "month": "2023-01",
+   "day": "2023-01-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2023-02",
+   "day": "2023-02-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2023-03",
+   "day": "2023-03-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2023-04",
+   "day": "2023-04-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2023-05",
+   "day": "2023-05-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2023-06",
+   "day": "2023-06-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2023-07",
+   "day": "2023-07-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2023-08",
+   "day": "2023-08-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2023-09",
+   "day": "2023-09-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2023-10",
+   "day": "2023-10-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2023-11",
+   "day": "2023-11-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2023-12",
+   "day": "2023-12-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2024-01",
+   "day": "2024-01-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2024-02",
+   "day": "2024-02-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2024-03",
+   "day": "2024-03-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2024-04",
+   "day": "2024-04-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2024-05",
+   "day": "2024-05-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2024-06",
+   "day": "2024-06-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2024-07",
+   "day": "2024-07-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2024-08",
+   "day": "2024-08-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2024-09",
+   "day": "2024-09-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2024-10",
+   "day": "2024-10-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2024-11",
+   "day": "2024-11-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2024-12",
+   "day": "2024-12-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2025-01",
+   "day": "2025-01-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2025-02",
+   "day": "2025-02-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2025-03",
+   "day": "2025-03-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2025-04",
+   "day": "2025-04-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2025-05",
+   "day": "2025-05-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2025-06",
+   "day": "2025-06-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2025-07",
+   "day": "2025-07-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2025-08",
+   "day": "2025-08-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2025-09",
+   "day": "2025-09-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2025-10",
+   "day": "2025-10-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2025-11",
+   "day": "2025-11-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2025-12",
+   "day": "2025-12-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2026-01",
+   "day": "2026-01-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2026-02",
+   "day": "2026-02-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2026-03",
+   "day": "2026-03-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2026-04",
+   "day": "2026-04-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2026-05",
+   "day": "2026-05-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2026-06",
+   "day": "2026-06-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2026-07",
+   "day": "2026-07-01",
+   "status": "included"
+  },
+  {
+   "symbol": "BTCUSDT",
+   "month": "2026-08",
+   "day": "2026-08-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2023-01",
+   "day": "2023-01-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2023-02",
+   "day": "2023-02-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2023-03",
+   "day": "2023-03-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2023-04",
+   "day": "2023-04-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2023-05",
+   "day": "2023-05-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2023-06",
+   "day": "2023-06-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2023-07",
+   "day": "2023-07-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2023-08",
+   "day": "2023-08-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2023-09",
+   "day": "2023-09-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2023-10",
+   "day": "2023-10-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2023-11",
+   "day": "2023-11-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2023-12",
+   "day": "2023-12-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2024-01",
+   "day": "2024-01-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2024-02",
+   "day": "2024-02-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2024-03",
+   "day": "2024-03-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2024-04",
+   "day": "2024-04-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2024-05",
+   "day": "2024-05-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2024-06",
+   "day": "2024-06-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2024-07",
+   "day": "2024-07-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2024-08",
+   "day": "2024-08-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2024-09",
+   "day": "2024-09-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2024-10",
+   "day": "2024-10-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2024-11",
+   "day": "2024-11-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2024-12",
+   "day": "2024-12-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2025-01",
+   "day": "2025-01-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2025-02",
+   "day": "2025-02-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2025-03",
+   "day": "2025-03-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2025-04",
+   "day": "2025-04-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2025-05",
+   "day": "2025-05-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2025-06",
+   "day": "2025-06-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2025-07",
+   "day": "2025-07-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2025-08",
+   "day": "2025-08-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2025-09",
+   "day": "2025-09-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2025-10",
+   "day": "2025-10-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2025-11",
+   "day": "2025-11-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2025-12",
+   "day": "2025-12-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2026-01",
+   "day": "2026-01-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2026-02",
+   "day": "2026-02-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2026-03",
+   "day": "2026-03-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2026-04",
+   "day": "2026-04-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2026-05",
+   "day": "2026-05-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2026-06",
+   "day": "2026-06-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2026-07",
+   "day": "2026-07-01",
+   "status": "included"
+  },
+  {
+   "symbol": "ETHUSDT",
+   "month": "2026-08",
+   "day": "2026-08-01",
+   "status": "excluded",
+   "reason": "gap_total 60.2s > 60s"
+  }
+ ]
+}
