@@ -1,0 +1,6 @@
+# Reference screenshots stay local (contain third-party social media content)
+refs/
+
+# OS noise
+.DS_Store
+Thumbs.db
