@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayush Mukhi · Quant Research</title>
+<meta name="description" content="Quantitative research portfolio: a pre-registered market microstructure study, out-of-sample portfolio allocation, market analytics, and trading systems engineering.">
+<meta name="theme-color" content="#08080c">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="#top">ayush mukhi</a>
+    <ul class="nav-links">
+      <li><a href="#research">Microstructure</a></li>
+      <li class="nav-optional"><a href="#allocations">Allocation</a></li>
+      <li class="nav-optional"><a href="#mag7">Mag 7</a></li>
+      <li><a href="#systems">Systems</a></li>
+      <li><a href="https://github.com/yushingtoncity" rel="me">GitHub</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div id="research" style="scroll-margin-top: 88px;">
+      <p class="eyebrow">market-entropy · pre-registered study</p>
+      <h1>Predictability exists. It dies at costs.</h1>
+      <p class="lede">Order flow predicts crypto price moves seconds ahead, consistently and out of sample. The effect is an order of magnitude too small to survive trading fees, and the entropy feature the study was built around added nothing. Both results are reported in full.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://github.com/yushingtoncity/market-entropy/blob/main/report/v3_research_note.md">Read the research note</a>
+        <a class="btn" href="https://github.com/yushingtoncity/market-entropy">Source repository</a>
+      </div>
+      <dl class="stats">
+        <div class="stat"><b>3.6 / 2.6%</b><span>median out-of-sample R&sup2; at 1 second, BTC / ETH</span></div>
+        <div class="stat"><b>97% of 75</b><span>held-out days with positive out-of-sample R&sup2;</span></div>
+        <div class="stat"><b>1,020</b><span>configurations enumerated in advance, all reported</span></div>
+      </dl>
+    </div>
+    <figure class="panel">
+      <p class="panel-title">median per-day OOS R&sup2; vs horizon</p>
+      <div id="chart-decay" class="chart chart-tall" role="img" aria-label="Line chart: median out-of-sample R squared versus prediction horizon for BTC and ETH. Both curves start near 3.6 and 2.6 percent at 1 second and decay toward zero by 60 seconds.">
+        <div class="chart-fallback">loading chart</div>
+      </div>
+      <figcaption class="chart-note">Walk-forward, monthly refits, held-out days only. Decays toward zero: about 0.2 to 0.3% at 60 seconds.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<!-- ============ COSTS ============ -->
+<section id="costs">
+  <div class="wrap split">
+    <div class="side">
+      <h2>Gross predictability dies at trading costs</h2>
+      <p>Turning the forecasts into a simple trading rule earns positive gross PnL on most days. Charging any realistic fee erases it. The breakeven one-way cost is 0.17 to 0.33 bps per unit of turnover, against multi-bp taker fees on the venue the data comes from.</p>
+      <div class="equation" data-tex="c^{*} \;=\; \frac{\sum_{d} \text{gross PnL}_{d}}{\sum_{d} \text{turnover}_{d}}"></div>
+      <p class="equation-caption">The flat one-way cost in bps at which net PnL crosses zero, as computed in <span class="mono">src/study/costs.py</span>.</p>
+    </div>
+    <figure class="panel">
+      <p class="panel-title">breakeven one-way cost vs the study&rsquo;s fee assumption</p>
+      <div id="chart-costs" class="chart chart-tall" role="img" aria-label="Bar chart: the breakeven one-way cost per unit of turnover sits between 0.17 and 0.33 bps across horizons, far below the 2.5 bps taker fee the study assumes.">
+        <div class="chart-fallback">loading chart</div>
+      </div>
+      <figcaption class="chart-note">OLS forecasts under the most permissive cost grid. The dashed line is the taker fee the pre-registered design assumes.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ CONSISTENCY ============ -->
+<section id="consistency">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The signal shows up almost every day</h2>
+      <p>Per-day out-of-sample R&sup2; across 38 BTC and 37 ETH held-out days. Positive on 97% of them. Sign accuracy reaches 69 to 76% at 1 second on bars where the mid moved at all.</p>
+    </div>
+    <figure class="panel">
+      <p class="panel-title">per-day OOS R&sup2; distribution, held-out days</p>
+      <div id="chart-perday" class="chart chart-tall" role="img" aria-label="Distribution of per-day out-of-sample R squared for BTC and ETH held-out days. Nearly all days are positive.">
+        <div class="chart-fallback">loading chart</div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ NULL ============ -->
+<section id="null">
+  <div class="wrap split-rev">
+    <figure class="panel">
+      <p class="panel-title">entropy ablation: &Delta;R&sup2; from adding entropy features</p>
+      <div id="chart-ablation" class="chart" role="img" aria-label="Bar chart: change in out-of-sample R squared from adding entropy features. All bars sit at approximately zero.">
+        <div class="chart-fallback">loading chart</div>
+      </div>
+      <figcaption class="chart-note">&Delta;R&sup2; of flow plus entropy versus flow alone, per symbol and horizon.</figcaption>
+    </figure>
+    <div class="side">
+      <h2>The founding hypothesis returned a null</h2>
+      <p>The study exists because of a hunch that Shannon entropy of order flow carries information beyond the flow itself. It does not. Ablation &Delta;R&sup2; is roughly &minus;0.0002 percentage points and day-level wins are never distinguishable from a coin flip.</p>
+      <p>The design was committed before any model was fit, so this null is reported with the same prominence as the positive results. A measurement study that cannot publish a null is not measuring.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VALIDATION ============ -->
+<section id="validation">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The pipeline was validated before it was trusted</h2>
+      <p>Phase v1 scored every component against LOBSTER NASDAQ ground truth: zero reconciliation violations across 500,000 sampled book events, and the trade-sign classifier scored against true aggressor labels. Lee-Ready holds 90 to 94% accuracy under a 1 second quote lag. Classic stylized facts replicate.</p>
+    </div>
+    <div class="duo">
+      <figure class="panel">
+        <p class="panel-title">trade classifier accuracy by condition</p>
+        <div id="chart-leeready" class="chart" role="img" aria-label="Grouped bars: classifier accuracy for Lee-Ready, tick, and EMO rules under synchronized quotes, one second quote lag, and hidden executions.">
+          <div class="chart-fallback">loading chart</div>
+        </div>
+      </figure>
+      <figure class="panel">
+        <p class="panel-title">accuracy by tick-size group and trade location</p>
+        <div id="chart-tickgroup" class="chart" role="img" aria-label="Grouped bars: classifier accuracy split by large-tick versus small-tick stocks and by trade location.">
+          <div class="chart-fallback">loading chart</div>
+        </div>
+      </figure>
+    </div>
+    <figure class="panel" style="margin-top: 24px;">
+      <p class="panel-title">intraday volume profile · LOBSTER sample day</p>
+      <div id="chart-ushape" class="chart" role="img" aria-label="Line chart: share of daily volume per fifteen minute bucket for five stocks, high at the open and close and lower midday, the classic intraday U shape.">
+        <div class="chart-fallback">loading chart</div>
+      </div>
+      <figcaption class="chart-note">The classic U shape, replicated from the sample day as a pipeline sanity check.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ DATASET ============ -->
+<section id="dataset">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">dataset v2a</p>
+      <h2>44 months of tick data, pinned by hash</h2>
+      <p>Binance USDT-perp quotes and trades, 2023-01 through 2026-08. 87 of 88 candidate day-symbols passed quality gates; every source file is recorded in a committed SHA-256 provenance manifest. The order-flow imbalance driving the study:</p>
+    </div>
+    <div class="equation" data-tex="e_{n} \;=\; \mathbb{1}\{P^{b}_{n} \ge P^{b}_{n-1}\}\, q^{b}_{n} \;-\; \mathbb{1}\{P^{b}_{n} \le P^{b}_{n-1}\}\, q^{b}_{n-1} \;-\; \mathbb{1}\{P^{a}_{n} \le P^{a}_{n-1}\}\, q^{a}_{n} \;+\; \mathbb{1}\{P^{a}_{n} \ge P^{a}_{n-1}\}\, q^{a}_{n-1}"></div>
+    <p class="equation-caption">Event-level order flow imbalance, Cont, Kukanov and Stoikov (2014), summed per bar. Implemented once in <span class="mono">src/features/microstructure.py</span> and reused across phases.</p>
+
+    <figure class="panel" style="margin-top: 40px;">
+      <p class="panel-title"><span>trade-sign ACF surface · included day &times; lag</span>
+        <span class="seg">
+          <button type="button" class="seg-btn is-active" data-symbol="BTCUSDT" aria-pressed="true">BTCUSDT</button>
+          <button type="button" class="seg-btn" data-symbol="ETHUSDT" aria-pressed="false">ETHUSDT</button>
+        </span>
+      </p>
+      <div id="chart-acf-surface" class="chart chart-tall" role="img" aria-label="3D surface: trade-sign autocorrelation by day and lag across the included days. The decay shape is stable across days.">
+        <div class="chart-fallback">loading chart</div>
+      </div>
+      <figcaption class="chart-note">One row per included day. The persistence structure is stable across three and a half years.</figcaption>
+    </figure>
+
+    <div class="duo" style="margin-top: 24px;">
+      <figure class="panel">
+        <p class="panel-title">trade-sign autocorrelation · mean and 10-90 band</p>
+        <div id="chart-acf" class="chart" role="img" aria-label="Line chart: mean autocorrelation of trade signs decaying slowly over 120 lags, with a tenth to ninetieth percentile band across days, for BTC and ETH.">
+          <div class="chart-fallback">loading chart</div>
+        </div>
+      </figure>
+      <div>
+        <h3 style="margin-bottom: 16px;">Coverage, month by symbol</h3>
+        <div class="coverage-scroll">
+          <div id="coverage-grid" class="coverage" role="img" aria-label="Grid of 44 months by two symbols. All cells included except ETHUSDT August 2026, excluded for a quote gap."></div>
+        </div>
+        <div class="cov-legend">
+          <span><i style="background: var(--p-amber); opacity: 0.7;"></i>passed quality gates</span>
+          <span><i style="background: transparent; border: 1px solid var(--p-rose);"></i>excluded: 60.2 s quote gap</span>
+        </div>
+        <p class="chart-note" style="margin-top: 12px;">87 of 88 candidate day-symbols pass. The one exclusion is the only gap in 44 months.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ALLOCATIONS ============ -->
+<section id="allocations">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Four allocation rules, judged strictly out of sample</h2>
+      <p>Weights chosen on 2019-2022 daily data only, then held fixed and evaluated on 2023-2024 with quarterly rebalancing, gross and net of 10 bps per rebalance. Twelve large-cap US stocks; a fixed 60/40 SPY/AGG portfolio as the reference. The point is not the returns. It is the gap between what the optimizer predicted and what happened.</p>
+    </div>
+    <figure class="panel">
+      <p class="panel-title">growth of $10,000 · evaluation window</p>
+      <div id="chart-growth" class="chart chart-tall" role="img" aria-label="Line chart: growth of ten thousand dollars for equal weight, inverse volatility, minimum variance, and sixty forty portfolios over 2023 to 2024.">
+        <div class="chart-fallback">loading chart</div>
+      </div>
+      <figcaption class="chart-note">Zero-cost curves shown; net-of-cost results differ by under 1% annualized and are reported in the repository.</figcaption>
+    </figure>
+    <div class="duo" style="margin-top: 24px;">
+      <figure class="panel">
+        <p class="panel-title">predicted vs realized volatility</p>
+        <div id="chart-vol" class="chart" role="img" aria-label="Paired bars: annualized volatility each allocation predicted from the estimation window versus what it realized out of sample.">
+          <div class="chart-fallback">loading chart</div>
+        </div>
+        <figcaption class="chart-note">Estimation error, the honest headline of portfolio optimization.</figcaption>
+      </figure>
+      <figure class="panel">
+        <p class="panel-title">rolling 60-day correlation vs SPY · asset &times; time</p>
+        <div id="chart-corr-surface" class="chart" role="img" aria-label="3D surface: rolling sixty day correlation of each of twelve stocks against SPY from 2019 through 2024.">
+          <div class="chart-fallback">loading chart</div>
+        </div>
+      </figure>
+    </div>
+    <p style="margin-top: 24px;"><a href="https://github.com/yushingtoncity/portfolio-optimization">Source repository</a>, including the limitations the README states plainly: one regime, a universe picked with hindsight, and a flat cost model.</p>
+  </div>
+</section>
+
+<!-- ============ MAG 7 ============ -->
+<section id="mag7">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Mag 7 vs SPY through 2025, measured daily</h2>
+      <p>An equal-weight basket of the seven mega-caps against SPY across 249 trading days of 2025: cumulative equity, 20-day rolling volatility, 60-day rolling correlation, and a daily regime tag. Descriptive analytics, not a backtest.</p>
+    </div>
+    <div class="duo">
+      <figure class="panel">
+        <p class="panel-title">cumulative equity · normalized to 1.0</p>
+        <div id="chart-mag7-equity" class="chart" role="img" aria-label="Line chart: equal weight Mag 7 equity curve versus SPY across 2025, both starting at one.">
+          <div class="chart-fallback">loading chart</div>
+        </div>
+      </figure>
+      <figure class="panel">
+        <p class="panel-title">rolling vol and correlation</p>
+        <div id="chart-mag7-rolling" class="chart" role="img" aria-label="Two line charts: twenty day annualized volatility of the Mag 7 basket, and its sixty day rolling correlation with SPY.">
+          <div class="chart-fallback">loading chart</div>
+        </div>
+      </figure>
+    </div>
+    <p style="margin-top: 24px;"><a href="https://github.com/yushingtoncity/mag7-quant-pipeline">Source repository</a></p>
+  </div>
+</section>
+
+<!-- ============ SYSTEMS ============ -->
+<section id="systems">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">engineering</p>
+      <h2>Systems and earlier work</h2>
+    </div>
+    <div class="cards">
+
+      <article class="card" style="grid-column: 1 / -1;">
+        <h3>AEGIS <span class="tag">python · agentic trading platform</span></h3>
+        <p>&ldquo;The LLM proposes; deterministic code disposes.&rdquo; An agentic trading platform where language-model output can never touch an order directly: every proposal must pass a deterministic policy gate before an executor sees it. Phases 0 and 1 of 10 are complete: a typed data layer over the Alpaca paper API with staleness-labeled quotes, option chains, and news, plus operator CLIs. Paper trading only, hardcoded. No live capital, and graded on operational correctness rather than P&amp;L.</p>
+        <svg class="diagram" viewBox="0 0 860 240" role="img" aria-label="Architecture diagram: config feeds data clients locked to the paper API, through a TTL cache into typed models consumed by CLI tools. A planned lane shows LLM proposals passing a deterministic policy gate before any executor.">
+          <g fill="none" stroke="#32323f">
+            <rect x="10"  y="40" width="130" height="52" rx="6"></rect>
+            <rect x="190" y="40" width="160" height="52" rx="6"></rect>
+            <rect x="400" y="40" width="120" height="52" rx="6"></rect>
+            <rect x="570" y="40" width="130" height="52" rx="6"></rect>
+            <rect x="750" y="40" width="100" height="52" rx="6"></rect>
+            <rect x="190" y="150" width="160" height="52" rx="6" stroke-dasharray="5 4"></rect>
+            <rect x="400" y="150" width="160" height="52" rx="6" stroke-dasharray="5 4" stroke="#fca636"></rect>
+            <rect x="610" y="150" width="140" height="52" rx="6" stroke-dasharray="5 4"></rect>
+          </g>
+          <g stroke="#4a4a58" marker-end="url(#arr)">
+            <line x1="140" y1="66" x2="186" y2="66"></line>
+            <line x1="350" y1="66" x2="396" y2="66"></line>
+            <line x1="520" y1="66" x2="566" y2="66"></line>
+            <line x1="700" y1="66" x2="746" y2="66"></line>
+          </g>
+          <g stroke="#4a4a58" stroke-dasharray="4 4" marker-end="url(#arr)">
+            <line x1="350" y1="176" x2="396" y2="176"></line>
+            <line x1="560" y1="176" x2="606" y2="176"></line>
+          </g>
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#4a4a58"></path>
+            </marker>
+          </defs>
+          <g fill="#a9a9b5" font-size="12">
+            <text x="75"  y="62" text-anchor="middle">config.yaml</text>
+            <text x="75"  y="78" text-anchor="middle" fill="#70707c" font-size="10">+ env</text>
+            <text x="270" y="62" text-anchor="middle">data clients</text>
+            <text x="270" y="78" text-anchor="middle" fill="#fca636" font-size="10">paper=True, hardcoded</text>
+            <text x="460" y="62" text-anchor="middle">TTL cache</text>
+            <text x="635" y="62" text-anchor="middle">typed models</text>
+            <text x="635" y="78" text-anchor="middle" fill="#70707c" font-size="10">every read stamped</text>
+            <text x="800" y="62" text-anchor="middle">CLIs</text>
+            <text x="800" y="78" text-anchor="middle" fill="#70707c" font-size="10">check · snapshot</text>
+            <text x="270" y="172" text-anchor="middle">LLM brain</text>
+            <text x="270" y="188" text-anchor="middle" fill="#70707c" font-size="10">proposes only</text>
+            <text x="480" y="172" text-anchor="middle" fill="#fca636">policy gate</text>
+            <text x="480" y="188" text-anchor="middle" fill="#70707c" font-size="10">deterministic, disposes</text>
+            <text x="680" y="172" text-anchor="middle">executor</text>
+            <text x="680" y="188" text-anchor="middle" fill="#70707c" font-size="10">paper broker</text>
+            <text x="120" y="180" fill="#70707c" font-size="10">planned (phases 2+):</text>
+          </g>
+        </svg>
+        <ul class="facts">
+          <li>76 passing tests, fixtures only, no live API calls in the suite</li>
+          <li>Free-plan data quirks handled explicitly: IEX feed fallback, delayed options feed, staleness labels</li>
+          <li>Explicitly no live capital; the execution interface exists so the constraint is architectural, not aspirational</li>
+        </ul>
+        <div class="card-links"><a href="https://github.com/yushingtoncity/AEGIS">Repository</a></div>
+      </article>
+
+      <article class="card">
+        <h3>Kalman pairs trading <span class="tag">c++17 · eigen</span></h3>
+        <p>A 2-state Kalman filter tracks the intercept and hedge ratio of a simulated cointegrated pair; the innovation z-score drives a mean-reversion state machine, with rolling OLS as the baseline. Built for the tick path: zero heap allocations (enforceable with Eigen&rsquo;s runtime malloc assert), LDLT factor-and-solve instead of matrix inversion, Joseph-form covariance updates.</p>
+        <ul class="facts">
+          <li>On a deterministic synthetic tape with a mid-run hedge-ratio break, the filter tracks the true ratio with 7.8x less error than rolling OLS</li>
+          <li>All numbers come from the simulator and the README says so; no market claims</li>
+          <li>Streaming risk metrics in O(1) memory: Welford Sharpe, running max drawdown</li>
+        </ul>
+        <div class="card-links"><a href="https://github.com/yushingtoncity/kalman-pairs-trading">Repository</a></div>
+      </article>
+
+      <article class="card">
+        <h3>SMA backtest <span class="tag">python · first project</span></h3>
+        <p>The earliest project here, kept as a record of the starting point. One notebook: SPY 2015-2024, a 50-day moving average, long when price is above it, in cash otherwise, signals lagged one day. The strategy finished at 1.78x while buy-and-hold finished at 3.40x. No costs modeled, one parameter, in sample. It underperformed, and that is the result.</p>
+        <div class="card-links"><a href="https://github.com/yushingtoncity/sma_backtest">Repository</a></div>
+      </article>
+
+      <article class="card" style="grid-column: 1 / -1;">
+        <h3>GARP policy letter <span class="tag">writing · model risk</span></h3>
+        <p>A letter to the CEO of the Global Association of Risk Professionals proposing formal practitioner guidance on AI model diversity and vendor concentration disclosure, housed in GARP&rsquo;s existing Risk and AI certificate. The argument: firm-level specialist agents do not address industry-level concentration, because firms building excellent narrow tools on the same few foundational models still fail together. Concentration in AI architecture should be treated like concentration in positions: measured, disclosed, managed.</p>
+        <div class="card-links"><span class="mono">July 2026</span></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>Ayush Mukhi · finance and business, George Mason University.<br>Every chart on this page is rendered from JSON exported by the source repository&rsquo;s own committed pipeline.</p>
+    <p><a href="https://github.com/yushingtoncity">github.com/yushingtoncity</a></p>
+  </div>
+</footer>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="app.js"></script>
+</body>
+</html>
