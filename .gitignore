@@ -1,6 +1,11 @@
 # Reference screenshots stay local (contain third-party social media content)
 refs/
 
+# Dependencies and build output
+node_modules/
+dist/
+dist-ssr/
+
 # OS noise
 .DS_Store
 Thumbs.db

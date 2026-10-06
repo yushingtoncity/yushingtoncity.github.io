@@ -1,0 +1,142 @@
+/* Research-note design system. Light paper, ink text, one accent (amber).
+   Tokens live in @theme below. Layout and type are Tailwind utilities in the components;
+   this file holds only what utilities express badly: fonts, base elements, the KaTeX and
+   diagram skins, the coverage grid and motion.
+   Shape rule: 4px radius on controls, 2px on grid cells, square everywhere else.
+   Chart colours are the --color-c* and --color-seq* tokens; src/charts.ts reads them at
+   runtime, so charts are restyled from this file. */
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* "static" keeps every token in the output even when no utility uses it: charts.ts needs them. */
+@theme static {
+  --color-paper: #f5f6f4;
+  --color-paper-2: #eceeea;
+  --color-rule: #d6d9d3;
+  --color-rule-strong: #b4b9b1;
+
+  --color-ink: #14171a;
+  --color-ink-soft: #2c3238;
+  --color-body: #3a4046;
+  --color-mute: #5f666d;
+
+  --color-accent: #b45f06;      /* graphics: chart marks, rules, markers */
+  --color-accent-ink: #9a5005;  /* the accent as text, passes AA on paper */
+  --color-wash: rgba(252, 166, 54, 0.34);
+
+  /* chart series, in order of use */
+  --color-c1: #b45f06;
+  --color-c2: #4a5158;
+  --color-c3: #8a2f7d;
+  --color-c4: #c2455c;
+  --color-c5: #3b2a8f;
+  /* sequential scale for surfaces, low to high */
+  --color-seq0: #f3e2c4;
+  --color-seq1: #f0b560;
+  --color-seq2: #cc7613;
+  --color-seq3: #6b3802;
+  --color-grid: rgba(20, 23, 26, 0.08);
+  --color-axis: rgba(20, 23, 26, 0.32);
+
+  --font-sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, Consolas, "Cascadia Mono", monospace;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* the contents rail sits beside the column from this width up */
+  --breakpoint-wide: 56.3125rem;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  @media (min-width: 40rem) { body { font-size: 17px; } }
+
+  ::selection { background: var(--color-wash); }
+
+  a {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-decoration-color: var(--color-mute);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color 0.2s var(--ease-out-expo), text-decoration-color 0.2s var(--ease-out-expo);
+  }
+  a:hover { color: var(--color-accent-ink); text-decoration-color: var(--color-accent); }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  code { font-family: var(--font-mono); font-size: 0.82em; }
+}
+
+@layer components {
+  /* key figures inside a sentence: ink, with the accent as a marker stroke */
+  .hl {
+    color: var(--color-ink); font-weight: 600; font-variant-numeric: tabular-nums;
+    background: linear-gradient(transparent 58%, var(--color-wash) 58%); padding: 0 1px;
+  }
+
+  /* coverage grid */
+  .cov-col { display: grid; grid-template-columns: 14px; grid-template-rows: 14px 14px 16px; gap: 3px; }
+  .cov-col:first-child { grid-template-columns: auto; }
+  .cov-cell, .cov-key { border-radius: 2px; background: var(--color-accent); opacity: 0.8; }
+  .cov-cell { width: 14px; height: 14px; }
+  .cov-key { display: inline-block; width: 12px; height: 12px; margin-right: 7px; vertical-align: -1px; }
+  .cov-miss { background: transparent; border: 1px solid var(--color-ink); opacity: 1; }
+  .cov-head, .cov-label { font-family: var(--font-mono); font-size: 10px; color: var(--color-mute); }
+  .cov-head { line-height: 14px; padding-right: 8px; }
+  .cov-label { line-height: 16px; white-space: nowrap; }
+
+  /* aegis diagram */
+  .diagram { display: block; width: 100%; min-width: 720px; height: auto; }
+  .diagram text { font-family: var(--font-sans); font-size: 13px; fill: var(--color-ink); }
+  .diagram .d-sub { font-size: 11.5px; fill: var(--color-mute); }
+  .diagram .d-hot { fill: var(--color-accent-ink); }
+  .diagram .d-box { fill: none; stroke: var(--color-rule-strong); }
+  .diagram .d-planned { stroke-dasharray: 5 4; }
+  .diagram .d-gate { stroke: var(--color-accent); }
+  .diagram .d-arrow { stroke: var(--color-mute); }
+  .diagram .d-arrowhead { fill: var(--color-mute); }
+}
+
+/* KaTeX skin. Unlayered on purpose: katex.min.css is unlayered and would win otherwise. */
+.equation .katex { font-size: 1.05rem; color: var(--color-ink); }
+.equation .katex-display { margin: 0.4em 0; text-align: left; }
+.equation .katex-display > .katex { text-align: left; }
+
+/* Motion: the title block arrives in sequence, charts fade in when drawn. */
+@media (prefers-reduced-motion: no-preference) {
+  .title-rise > * { opacity: 0; transform: translateY(10px); animation: rise 0.6s var(--ease-out-expo) forwards; }
+  .title-rise > :nth-child(2) { animation-delay: 70ms; }
+  .title-rise > :nth-child(3) { animation-delay: 140ms; }
+  .title-rise > :nth-child(4) { animation-delay: 210ms; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  [data-ready="true"] { animation: fade 0.5s var(--ease-out-expo); }
+  @keyframes fade { from { opacity: 0; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
